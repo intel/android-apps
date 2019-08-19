@@ -24,7 +24,7 @@ public class AudioRecorderActivity extends AppCompatActivity {
     private Button startR1 = null, stopR2 = null, playR3 = null;
     public static final int RequestPermissionCode = 101;
     String filePath = null;
-    String fileName = "recordedFile.3gp";
+    String fileName = "recordedFile.mp4";
     MediaRecorder audioRecorder;
     MediaPlayer audioPlayer;
     Button buttonVar3;
@@ -94,7 +94,7 @@ public class AudioRecorderActivity extends AppCompatActivity {
     public boolean createRecOutputFile() {
         boolean file;
         filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/"
-                + "recordedFile.3gp";
+                + "recordedFile.mp4";
         Log.e(" Rec_file", "createRecOutputFile: " + filePath);
         if (filePath != null && !filePath.isEmpty())
             return true;
@@ -105,8 +105,8 @@ public class AudioRecorderActivity extends AppCompatActivity {
     public void configure() {
         audioRecorder = new MediaRecorder();
         audioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        audioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        audioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.DEFAULT);
+        audioRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+        audioRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
         audioRecorder.setOutputFile(filePath);
     }
 
